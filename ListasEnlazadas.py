@@ -43,6 +43,43 @@ class ListasEnlazadas:
             actual = actual.siguiente
         print("None")
         
+        
+    def eliminar_nodo_al_inicio(self):
+
+    # Verificar si la lista está vacía
+        if self.cabeza is None:
+            print("La lista está vacía")
+            return
+
+    # Mover la cabeza al siguiente nodo
+        self.cabeza = self.cabeza.siguiente
+        
+        
+        
+        
+    def eliminar_nodo_al_final(self):
+
+    # Verificar si la lista está vacía
+        if self.cabeza is None:
+            print("La lista está vacía")
+            return
+
+    # Verificar si solamente existe un nodo
+        if self.cabeza.siguiente is None:
+            self.cabeza = None
+            return
+
+    # Recorrer la lista
+        actual = self.cabeza
+
+    # Llegar hasta el penúltimo nodo
+        while actual.siguiente.siguiente is not None:
+            actual = actual.siguiente
+
+    # Desconectar el último nodo
+        actual.siguiente = None
+
+
 # Crear la lista
 mi_lista = ListasEnlazadas()
 
@@ -51,6 +88,13 @@ mi_lista.insertar_nodo_al_inicio(2)
 mi_lista.insertar_nodo_al_inicio(1)
 mi_lista.insertar_nodo_al_final(56)
 
-# Imprimir
+print("Lista original:")
 mi_lista.imprimir_lista()
 
+print("Eliminar al inicio:")
+mi_lista.eliminar_nodo_al_inicio()
+mi_lista.imprimir_lista()
+
+print("Eliminar al final:")
+mi_lista.eliminar_nodo_al_final()
+mi_lista.imprimir_lista()
